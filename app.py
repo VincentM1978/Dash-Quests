@@ -1,13 +1,13 @@
 import pandas as pd
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
+from dash import dcc
+from dash import html
 import plotly.express as px
 
 ###################################################### importation et nettoyage du csv #########################################################
 
 
-df = pd.read_csv('https://raw.githubusercontent.com/chriszapp/datasets/main/books.csv', sep=',', on_bad_lines='warn')
+df = pd.read_csv('https://raw.githubusercontent.com/chriszapp/datasets/main/books.csv', sep=',', on_bad_lines='skip', low_memory=False)
 df['publication_date'] = pd.to_datetime(df['publication_date'], errors='coerce')
 df['year'] = df['publication_date'].dt.year
 df['year'] = pd.to_datetime(df['year'], format='%Y').dt.year
