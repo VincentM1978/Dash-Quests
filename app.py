@@ -18,6 +18,7 @@ df['year'] = df['year'].astype(float).astype(pd.Int64Dtype())
 
 # Create the Dash app
 app = dash.Dash(__name__)
+server = app.server
 
 ############################################################# creation du layout #############################################################
 
